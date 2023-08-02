@@ -22,6 +22,8 @@ async function getGreetings () {
 const result = await db.all(`select * from greetings`);
 return result;
 }
+const result1 = await getGreetings()
+ console.log(result1);
 
 // crete a functin that deletes a specific greeting
 async function deleteGreeting (language, greeting){
@@ -36,10 +38,10 @@ async function addGreeting(language, greeting){
     await db.run(sql, [language, greeting]);
 }
 
-const result1 = await getGreetings()
-console.log(result1);
+// const result1 = await getGreetings()
+// console.log(result1);
 
-console.log('===========')
+// console.log('===========')
 
 //Update the values in a table
 async function updateGreeting(language, greeting, id) {
@@ -47,13 +49,13 @@ async function updateGreeting(language, greeting, id) {
     await db.run (sql, [language, greeting, id])
 
 }
-await updateGreeting('Sepedi', 'Thobela',4 )
+//await updateGreeting('Sepedi', 'Thobela',4 )
 
-await addGreeting('Sepedi', 'Dumela');
-console.log('=============')
+//await addGreeting('Sepedi', 'Dumela');
+//console.log('=============')
 
-const result2 = await getGreetings()
-console.log(result2)
+//const result2 = await getGreetings()
+//console.log(result2)
 
 
 //call the query using promise 
